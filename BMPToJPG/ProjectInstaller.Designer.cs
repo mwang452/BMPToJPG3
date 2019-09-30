@@ -40,8 +40,8 @@
             // serviceInstaller1
             // 
             this.serviceInstaller1.Description = "Converts BMP files to JPG";
-            this.serviceInstaller1.DisplayName = "BMP to JPG Converter";
-            this.serviceInstaller1.ServiceName = "BMPToJPGConverter";
+            this.serviceInstaller1.DisplayName = "Signature Encoder";
+            this.serviceInstaller1.ServiceName = "SignatureEncoder";
             // 
             // ProjectInstaller
             // 

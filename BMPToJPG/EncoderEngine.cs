@@ -30,7 +30,7 @@ namespace BMPToJPG
             {
                 using (EventLog log = new EventLog())
                 {
-                    log.Source = "BMPtoJPGConverter Encoder";
+                    log.Source = "Signature Encoder";
                     log.WriteEntry("There was a problem with the filepath. Automatically trying again. Path: " + _filePath + " " + ex.Message);
                 }
                 Thread.Sleep(500);
@@ -54,8 +54,15 @@ namespace BMPToJPG
             {
                 _bitMap.Save(StrippedPath() + ".jpg", _jpgEncoder, _myEncoderParameters);
             }
-            catch (Exception)
-            { }
+            catch (Exception ex)
+            {
+                using (EventLog log = new EventLog())
+                {
+                    log.Source = "Signature Encoder";
+                    log.WriteEntry("Error encoding the bmp to jpg and saving the file.  Verify the service has permission to write to the folder. Message: " + ex.Message, EventLogEntryType.Error);
+                }
+
+            }
             _bitMap.Dispose();
         }
         private static ImageCodecInfo GetEncoder(ImageFormat format)

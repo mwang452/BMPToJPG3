@@ -17,7 +17,7 @@ namespace BMPToJPG
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new Service1()
+                new SignatureEncoder()
             };
             ServiceBase.Run(ServicesToRun);
         }

@@ -19,7 +19,7 @@ namespace BMPToJPG
             _folderPath = folderPath;
             _fileName = Path.GetFileName(folderPath);
             string test = Path.GetDirectoryName(_folderPath);
-            _archiveFolderPath = Path.GetDirectoryName(_folderPath) + @"\Archive\";
+            _archiveFolderPath = Path.GetDirectoryName(_folderPath);
 
         }
 
@@ -44,7 +44,7 @@ namespace BMPToJPG
                 {
                     using (EventLog log = new EventLog())
                     {
-                        log.Source = "BMPtoJPGConverter Encoder";
+                        log.Source = "Signature Encoder";
                         log.WriteEntry("There was a problem creating the Archive folder " + _archiveFolderPath + " " + ex.Message, EventLogEntryType.Error);
 
                     }
@@ -67,7 +67,7 @@ namespace BMPToJPG
             {
                 using (EventLog log = new EventLog())
                 {
-                    log.Source = "BMPtoJPGConverter Encoder";
+                    log.Source = "Signature Encoder";
                     log.WriteEntry("There was a problem moving the file to " + _archiveFolderPath + " " + ex.Message, EventLogEntryType.Error);
                 }
             }
